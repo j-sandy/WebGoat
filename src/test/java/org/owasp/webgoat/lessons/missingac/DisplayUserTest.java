@@ -23,6 +23,6 @@ class DisplayUserTest {
     DisplayUser displayUser =
         new DisplayUser(new User("user1", "password1", false), PASSWORD_SALT_SIMPLE);
     Assertions.assertThat(displayUser.getUserHash())
-        .isEqualTo("QlV3h9fHsmpNLUwTI1QvJByQw6esj/3a0fjmXAbxnIk=");
+        .isEqualTo("Leqjw7sy/9GaBb+8sY97vquLLPxrVmcdphD5kz9e5nBzV99zHtAE6033Sq6xAIyN3xLAufQZQb1ANDQiPNmC9w==");
   }
 }
