@@ -34,7 +34,7 @@ class MissingFunctionYourHashTest extends LessonTest {
     mockMvc
         .perform(
             MockMvcRequestBuilders.post("/access-control/user-hash")
-                .param("userHash", "SVtOlaa+ER+w2eoIIVE5/77umvhcsh5V8UyDLUa1Itg="))
+                .param("userHash", "5PLUUkog7l1E5iesRu54TvYPOc1KE6CzWQoQKd1AvXs="))
         .andExpect(status().isOk())
         .andExpect(jsonPath("$.lessonCompleted", CoreMatchers.is(true)));
   }

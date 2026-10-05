@@ -32,7 +32,7 @@ class MissingFunctionACUsersTest extends LessonTest {
         .andExpect(jsonPath("$[0].username", CoreMatchers.is("Tom")))
         .andExpect(
             jsonPath(
-                "$[0].userHash", CoreMatchers.is("Mydnhcy00j2b0m6SjmPz6PUxF9WIeO7tzm665GiZWCo=")))
+                "$[0].userHash", CoreMatchers.is("84pNg1bFDZKp63FyMX/3wz87BbJQNoEyx1oqEOBzEYk=")))
         .andExpect(jsonPath("$[0].admin", CoreMatchers.is(false)));
   }
 

@@ -30,7 +30,7 @@ public class DisplayUser {
 
   protected String genUserHash(String username, String password, String passwordSalt)
       throws Exception {
-    MessageDigest md = MessageDigest.getInstance("SHA-256");
+    MessageDigest md = MessageDigest.getInstance("SHA3-256");
     // salting is good, but static & too predictable ... short too for a salt
     String salted = password + passwordSalt + username;
     // md.update(salted.getBytes("UTF-8")); // Change this to "UTF-16" if needed
