@@ -27,23 +27,20 @@ import org.springframework.web.bind.annotation.RestController;
 public class HashingAssignment implements AssignmentEndpoint {
   public static final String[] SECRETS = {"secret", "admin", "password", "123456", "passw0rd"};
 
-  @RequestMapping(path = "/crypto/hashing/md5", produces = MediaType.TEXT_HTML_VALUE)
+  @RequestMapping(path = "/crypto/hashing/sha256-1", produces = MediaType.TEXT_HTML_VALUE)
   @ResponseBody
-  public String getMd5(HttpServletRequest request) throws NoSuchAlgorithmException {
+  public String getSha256First(HttpServletRequest request) throws NoSuchAlgorithmException {
 
-    String md5Hash = (String) request.getSession().getAttribute("md5Hash");
-    if (md5Hash == null) {
+    String sha256Hash1 = (String) request.getSession().getAttribute("sha256Hash1");
+    if (sha256Hash1 == null) {
 
       String secret = SECRETS[new Random().nextInt(SECRETS.length)];
 
-      MessageDigest md = MessageDigest.getInstance("MD5");
-      md.update(secret.getBytes());
-      byte[] digest = md.digest();
-      md5Hash = DatatypeConverter.printHexBinary(digest).toUpperCase();
-      request.getSession().setAttribute("md5Hash", md5Hash);
+      sha256Hash1 = getHash(secret, "SHA-256");
+      request.getSession().setAttribute("sha256Hash1", sha256Hash1);
       request.getSession().setAttribute("md5Secret", secret);
     }
-    return md5Hash;
+    return sha256Hash1;
   }
 
   @RequestMapping(path = "/crypto/hashing/sha256", produces = MediaType.TEXT_HTML_VALUE)
