@@ -86,7 +86,7 @@ public class CryptoIntegrationTest extends IntegrationTest {
             .when()
             .relaxedHTTPSValidation()
             .cookie("JSESSIONID", getWebGoatCookie())
-            .get(webGoatUrlConfig.url("crypto/hashing/md5"))
+            .get(webGoatUrlConfig.url("crypto/hashing/sha256second"))
             .then()
             .extract()
             .asString();
@@ -104,7 +104,7 @@ public class CryptoIntegrationTest extends IntegrationTest {
     String answer_1 = "unknown";
     String answer_2 = "unknown";
     for (String secret : HashingAssignment.SECRETS) {
-      if (md5Hash.equals(HashingAssignment.getHash(secret, "MD5"))) {
+      if (md5Hash.equals(HashingAssignment.getHash(secret, "SHA-256"))) {
         answer_1 = secret;
       }
       if (sha256Hash.equals(HashingAssignment.getHash(secret, "SHA-256"))) {
